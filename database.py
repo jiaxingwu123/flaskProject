@@ -10,3 +10,4 @@ if __name__ == '__main__':
     conn.commit()
     cursor.close()
     conn.close()
+    print(123)
