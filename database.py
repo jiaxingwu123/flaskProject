@@ -11,3 +11,4 @@ if __name__ == '__main__':
     cursor.close()
     conn.close()
     print(123)
+    print(23)
