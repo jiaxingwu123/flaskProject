@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title>amis demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <!--<link rel="stylesheet" href="amis/sdk.css" />-->
+    <link rel="stylesheet" href="https://houtai.baidu.com/v2/csssdk"/>
+    <style>
+        html,
+        body,
+        .app-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="root" class="app-wrapper"></div>
+<!--<script src="amis/sdk.js"></script>-->
+<script src="https://houtai.baidu.com/v2/jssdk"></script>
+<script type="text/javascript">
+    (function () {
+        let amis = amisRequire('amis/embed');
+        let amisScoped = amis.embed('#root', {
+            "type": "page",
+            "body": [
+                {
+                    "type": "nav",
+                    "stacked": false,
+                    "links": [
+                        {
+                            "label": "创建课程模块",
+                            "to": "/",
+                            "icon": "fa fa-user"
+                        },
+                        {
+                            "label": "删除课程模块",
+                            "to": "/d"
+                        },
+                        {
+                            "label": "查询模块",
+                            "to": "/q"
+                        },
+                        {
+                            "label": "上课模块",
+                            "to": "/s"
+                        }
+                    ]
+                },
+                {
+                    "type": "form",
+                    "title": "创建小班课课程模块(正式课)",
+                    "initApi": "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/steps/steps",
+                    "body": [
+                        {
+                            "type": "steps",
+                            "steps": [
+                                {
+                                    "title": "创建课程"
+                                },
+                                {
+                                    "title": "创建课节",
+                                    "subTitle": "创建课节方可上架",
+                                },
+                                {
+                                    "title": "上架",
+                                    "subTitle": "上架后方可关联",
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "body": {
+                                "type": "panel",
+                                "title": "小班课的id编号",
+                                "body": "精品课${result}创建成功"
+                            }
+                        }
+                    ],
+                    "api": {
+                        "method": "get",
+                        "url": "http://127.0.0.1:5000/5"
+                    },
+
+                },
+
+
+                {
+                    "type": "form",
+                    "title": "创建精品课课程模块",
+                    "initApi": "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/steps/steps",
+                    "body": [
+                        {
+                            "type": "steps",
+                            "steps": [
+                                {
+                                    "title": "创建课程"
+                                },
+                                {
+                                    "title": "保存",
+                                    "subTitle": "保存后才可上架",
+                                },
+                                {
+                                    "title": "发布",
+                                    "subTitle": "发布后方可关联",
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "body": {
+                                "type": "panel",
+                                "title": "精品课的id编号",
+                                "body": "精品课${jpk}创建成功"
+                            }
+                        }
+                    ],
+                    "api": {
+                        "method": "get",
+                        "url": "http://127.0.0.1:5000/10"
+                    },
+                },
+
+                {
+                    "type": "form",
+                    "title": "精品课和小班课关联模块",
+                    "initApi": "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/steps/steps",
+                    "body": [
+                        {
+                            "type": "steps",
+                            "steps": [
+                                {
+                                    "title": "小班课课程上架"
+                                },
+                                {
+                                    "title": "精品课课程发布",
+                                },
+                                {
+                                    "title": "关联",
+                                    "subTitle": "只有两个课程都ok才可以关联",
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "body": {
+                                "type": "panel",
+                                "title": "关联信息",
+                                "body": "小班课${result}和精品课${result2}关联成功"
+                            }
+                        }
+                    ],
+
+                   "api": {
+                        "method": "get",
+                        "url": "http://127.0.0.1:5000/11"
+                    },
+                },
+
+
+            ]
+
+
+        });
+    })();
+</script>
+</body>
+</html>

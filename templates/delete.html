@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title>amis demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <!--<link rel="stylesheet" href="amis/sdk.css" />-->
+    <link rel="stylesheet" href="https://houtai.baidu.com/v2/csssdk"/>
+    <style>
+        html,
+        body,
+        .app-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="root" class="app-wrapper"></div>
+<!--<script src="amis/sdk.js"></script>-->
+<script src="https://houtai.baidu.com/v2/jssdk"></script>
+<script type="text/javascript">
+    (function () {
+        let amis = amisRequire('amis/embed');
+        let amisScoped = amis.embed('#root', {
+            "type": "page",
+            "body": [
+                {
+                    "type": "nav",
+                    "stacked": false,
+                    "links": [
+                        {
+                            "label": "创建课程模块",
+                            "to": "/",
+                            "icon": "fa fa-user"
+                        },
+                        {
+                            "label": "删除课程模块",
+                            "to": "/d"
+                        },
+                        {
+                            "label": "查询模块",
+                            "to": "/q"
+                        },
+                        {
+                            "label": "上课模块",
+                            "to": "/s"
+                        }
+
+                    ]
+                },
+
+                {
+                    "type": "form",
+                    "title": "删除小班课课程模块",
+                    "initApi": "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/steps/steps",
+                    "body": [
+                        {
+                            "type": "steps",
+                            "steps": [
+                                {
+                                    "title": "课程内是否有学员",
+                                    "subTitle": "如果有学员的话将会提示无法下架",
+                                },
+                                {
+                                    "title": "点击课程下架",
+                                    "subTitle": "课程下架后方可删除",
+                                },
+                                {
+                                    "title": "删除",
+                                    "subTitle": "成功删除该课程",
+                                },
+
+                            ]
+                        },
+                           {
+                                    "type": "page",
+                                    "body": {
+                                        "type": "panel",
+                                        "title": "删除小班课的id编号",
+                                        "body": "成功删除${id}课程"
+                                    }
+                                }
+                    ],
+                    "api": {
+                        "method": "get",
+                        "url": "http://127.0.0.1:5000/2"
+                    },
+                },
+
+                {
+                    "type": "form",
+                    "title": "批量删除小班课课程模块",
+
+                    "body": [
+                        {
+                            "type": "input-text",
+                            "name": "text1",
+                            "label": "请输入创建课程人："
+                        },
+                        {
+                            "type": "input-text",
+                            "name": "text2",
+                            "label": "请输入批量删除的数量："
+                        },
+                        {
+                            "type": "page",
+                            "body": {
+                                "type": "panel",
+                                "title": "删除小班课的数量",
+                                "body": "成功删除${count}课程"
+                            }
+                        }
+
+                    ],
+                    "api": {
+                        "method": "post",
+                        "url": "http://127.0.0.1:5000/6"
+                    },
+
+
+                },
+
+            ]
+
+
+        });
+    })();
+</script>
+</body>
+</html>
