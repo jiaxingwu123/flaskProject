@@ -368,6 +368,31 @@ def UpdateK():
 
 
 
+@app.route('/36',methods=['POST'])
+def QueryUseid():
+    data = request.get_data()
+    json_re = json.loads(data)
+    phone= json_re['phone']
+
+    db = pymysql.connect(
+        host='10.108.160.143',
+        port=3340,
+        user='xiaoban_dev',
+        password='LCW6+kd5f',
+        database='xiaoban',
+        charset='utf8',
+    )
+    cursor = db.cursor()
+    sql = 'select nickname,student_user_id,phone from xb_student where phone='+phone
+    result =cursor.execute(sql)
+    a = cursor.fetchall()
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return {
+    "result": a
+}
 
 
 

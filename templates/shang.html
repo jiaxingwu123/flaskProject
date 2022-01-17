@@ -250,6 +250,37 @@
 
 
                 },
+                {
+                    "type": "form",
+                    "title": "userid查询",
+
+                    "body": [
+                        {
+                            "type": "input-text",
+                            "name": "phone",
+                            "label": "请输入phone"
+                        },
+
+                        {
+                            "type": "page",
+                            "body": {
+                                "type": "panel",
+                                "title": "userid结果",
+                                "body": {
+                                    "type": "tpl",
+                                    "tpl": "查询结果: ${result}"
+                                }
+                            }
+                        }
+
+                    ],
+                    "api": {
+                        "method": "post",
+                        "url": "http://127.0.0.1:5000/36"
+                    },
+
+
+                },
 
 
 
