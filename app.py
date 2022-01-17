@@ -29,8 +29,7 @@ import pymysql
 
 import requests
 
-xbk = "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDE4ODM3MTUsInVzZXJJZCI6Ind1amlheGluZ0Bjb3JwLm5ldGVhc2UuY29tIiwicm9sZUlkIjozMiwicHJvZHVjdElkIjo0LCJuaWNrbmFtZSI6IuatpiJ9.ZJ_zdGDC8NpZTW843HmvaDyUlW7WusGcdosHEKegSYE"
-
+xbk = 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDI2NzEzODMsInVzZXJJZCI6Ind1amlheGluZ0Bjb3JwLm5ldGVhc2UuY29tIiwicm9sZUlkIjozMiwicHJvZHVjdElkIjo0LCJuaWNrbmFtZSI6IuatpiJ9.VLPAd7g0xDeJomlATKE0zE95k-PpwqeqmtWIoi2JX6g'
 cookie = 'OUTFOX_SEARCH_USER_ID_NCOO=1405845668.1002636; OUTFOX_SEARCH_USER_ID="1105122743@10.105.137.202"; _ga=GA1.2.606080555.1636362389; UM_distinctid=17cfed301aa7cd-0bccc5aad1b59d-1c306851-1fa400-17cfed301ab77c; experimentation_subject_id=ImEwNjdjNDY1LTdmYTktNDg3Mi1iMDQ0LWQ3MTRlY2YwZGM5NSI%3D--ac51f6e3c951e8226ef9f73f77fb9577802786c5; wap_abtest=5; _ntes_nnid=8a82b78c85ef1123d303970c932d2381,1637477089730; mp_MA-BF02-71D44E7C0390_hubble=%7B%22sessionReferrer%22%3A%20%22https%3A%2F%2Fc.youdao.com%2Finspire%2Fdownload.html%22%2C%22updatedTime%22%3A%201638271303970%2C%22sessionStartTime%22%3A%201638271296077%2C%22sendNumClass%22%3A%20%7B%22allNum%22%3A%202%2C%22errSendNum%22%3A%200%7D%2C%22deviceUdid%22%3A%20%22f11c213a-7074-4685-9c92-d7643b6124c3%22%2C%22persistedTime%22%3A%201637048943929%2C%22LASTEVENT%22%3A%20%7B%22eventId%22%3A%20%228d0bc9192c28057a9996372b32f99c6059ea1325%22%2C%22time%22%3A%201638271303971%7D%2C%22sessionUuid%22%3A%20%223a4a8383-f2c9-4d42-8858-26f393cb3b0b%22%7D; hb_MA-B0D8-94CBE089C042_source=www.google.com.hk; mp_MA-A5CB-3A8CE4190A3F_hubble=%7B%22sessionReferrer%22%3A%20%22https%3A%2F%2Fmanhattan-stable.inner.youdao.com%2F%23%2Fuser%2Finfo%2FU2FsdGVkX19HA45cVRkxeeZn1wCbF13u1gWjZKWgv0gICgxR33RrHtPRFaDWqopA%22%2C%22updatedTime%22%3A%201638859486344%2C%22sessionStartTime%22%3A%201638859486342%2C%22sendNumClass%22%3A%20%7B%22allNum%22%3A%203%2C%22errSendNum%22%3A%200%7D%2C%22deviceUdid%22%3A%20%22a3993541-736e-49e5-8832-5c225f27179d%22%2C%22persistedTime%22%3A%201638519037892%2C%22LASTEVENT%22%3A%20%7B%22eventId%22%3A%20%22da_screen%22%2C%22time%22%3A%201638859486344%7D%2C%22sessionUuid%22%3A%20%227f576556-21be-4577-80c6-90f67b989458%22%2C%22user_id%22%3A%20%22wujiaxing%40corp.netease.com%22%7D; DICT_FORCE=true; hb_MA-BB84-AB2D0288F3F5_source=jira.inner.youdao.com; NTES_YD_SESS=9oDWEjsXOJfMjfe45wLOMvfktdEwVw5J1ptcFykqztyb_q13_H8IY.wMde7YEPaW1dHJeck3FdMZoW3TSBEqycXkSufRIiAlTr0SF0voUM02EkjiqFVGaP9SrLi1WYP6CEB7.DOnPbC8KiIktegsfAvT.a0G090.KFbCYa5x8q5af3GqtvoDjLpn0d8z6XCg1yzxh39aaUM.cEXTJmtfTetrc.q.7e1F_9BhlaFgLGqcT; S_INFO=1640169967|0|0&60##|19801250393; P_INFO=19801250393|1640169967|1|youdaodict|00&99|bej&1640058201&youdaodict#bej&null#10#0#0|&0|null|19801250393; DICT_SESS=v2|wyPLhCpiemJ4nfYMk4TK0gLOMQShfTZ0puRHpB0MwBROY0LkWRHQL0kfP4U5nflY0YGRHQu6LOERqZ0MwK6Lkf0O5nMYGRMQu0; DICT_PERS=v2|urs-phone-web||DICT||web||604800000||1640169967353||61.135.255.83||urs-phoneyd.11cfd7e893a24e37b@163.com||Y5hMTBn4TuReynMzm0HzERYWhHlAO4PBRzYhMYGOLeK0pu6LJ4OfP4Rkm6MJy0HeK0l5nM64kfJLR6F0HOfPLqu0; DICT_LOGIN=7||1640169967358; yuid=1640261706455||447d9c503a3741ed81453e4843e6b264; OSMS_corp=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzhiODZjOGJmNGIxMWVhYjVkMzVjZjNmYzk2YTcyYyIsImlzcyI6Imh0dHBzOi8vbG9naW4ubmV0ZWFzZS5jb20vY29ubmVjdCIsImV4cCI6MTY0MDI3MzA1NiwiYXV0aF90aW1lIjoxNjQwMjQ1NTA2LCJpYXQiOjE2NDAyNzI0NTYsInN1YiI6Ind1amlheGluZyJ9._R3G0jARbABG8UHrT40u4raSjb4n9dtapJOZ-OZKrWk; OSMS_bindAccount=dkcglTSxoIuCoW7JPX_w6hV8ZKMehNNksfArMwkVC58=; mp_MA-BB84-AB2D0288F3F5_hubble=%7B%22sessionReferrer%22%3A%20%22%22%2C%22updatedTime%22%3A%201640272591490%2C%22sessionStartTime%22%3A%201640272439497%2C%22sendNumClass%22%3A%20%7B%22allNum%22%3A%209%2C%22errSendNum%22%3A%200%7D%2C%22deviceUdid%22%3A%20%22d5f43fb240973ef6588dbb4bbe7273e049935385%22%2C%22persistedTime%22%3A%201637032896261%2C%22LASTEVENT%22%3A%20%7B%22eventId%22%3A%20%22da_u_login%22%2C%22time%22%3A%201640272591490%7D%2C%22sessionUuid%22%3A%20%22634f61609d85445eb540e71fcd1a26e87d1046bf%22%2C%22user_id%22%3A%20%22wujiaxing%40corp.netease.com%22%7D; CourseopSessionId=Bk003fs1vzq1AZ+dMHGOtVe2zCEpCuA0UTX8TAneCQIioB6nzCcfdiB0+NWjSdcK1+wk9eme1Qz/+GNWvUPyV1EW2m3HS0/QYp2ePxcFcxo='
 
 
@@ -113,6 +112,8 @@ def AddClass():
     data = res.read()
     print(data.decode("utf-8"))
     return {'jpk': jpk}
+
+
 
 
 def Getcode():
@@ -339,6 +340,36 @@ def upadate():
     db.close()
 
     return {'result':"成功"}
+
+
+@app.route('/35',methods=['POST'])
+def UpdateK():
+    data = request.get_data()
+    json_re = json.loads(data)
+    userid= json_re['kequan-userid']
+    keid = json_re['kequan-kecourse']
+
+    db = pymysql.connect(
+        host='10.108.160.143',
+        port=3340,
+        user='xiaoban_dev',
+        password='LCW6+kd5f',
+        database='xiaoban',
+        charset='utf8',
+    )
+    cursor = db.cursor()
+    sql = 'update xb_ke_order set phone=(select phone from xb_student where student_user_id=\''+userid+'\'),' \
+        'status=2 where user_id=\''+userid+'\' and ke_course_id='+keid
+    result =cursor.execute(sql)
+    db.commit()
+    cursor.close()
+    db.close()
+    return {'result':"成功"}
+
+
+
+
+
 
 def altertime():
     # 格式化成2016-03-20 11:45:39形式

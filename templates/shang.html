@@ -214,6 +214,42 @@
 
 
                 },
+                 {
+                    "type": "form",
+                    "title": "刷新课权",
+
+                    "body": [
+                        {
+                            "type": "input-text",
+                            "name": "kequan-userid",
+                            "label": "请输入userid："
+                        },
+                        {
+                            "type": "input-text",
+                            "name": "kequan-kecourse",
+                            "label": "请输入课程的编号（精品课）："
+                        },
+
+                        {
+                            "type": "page",
+                            "body": {
+                                "type": "panel",
+                                "title": "刷新课权",
+                                "body": {
+                                    "type": "tpl",
+                                    "tpl": "课权刷新: ${result}"
+                                }
+                            }
+                        }
+
+                    ],
+                    "api": {
+                        "method": "post",
+                        "url": "http://127.0.0.1:5000/35"
+                    },
+
+
+                },
 
 
 
